@@ -1,9 +1,10 @@
 
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useMemo,useState} from 'react';
 import './App.css';
 
 // Do not change this
 const LARGE_NUMBER = 1000000000;
+
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
   const [dark, setTheme] = useState(true);
   const [themeName, setThemeName] = useState("dark");
   const [currentList, setList] = useState([]);
+  
 
 
   // should not change the LOGIC inside this function - you can make changes to the function but logic should NOT change
@@ -21,6 +23,7 @@ function App() {
     return value+2;
   
   }
+  const calculasion=useMemo(()=>{delayFunction()},[value])
 
   // should not change the LOGIC inside this function - you can make changes to the function but logic should NOT change
   const testFunction = ()=>{
@@ -52,6 +55,7 @@ function App() {
 
   const handleChangeValue = ()=>{
     setValue(value+1);
+
   }
 
   const handleList = ()=>{
@@ -69,7 +73,7 @@ function App() {
       <h1 >{value}</h1>
       <button onClick={handleChangeValue}>Change Value</button>
       <button onClick={handleList}>Show List</button>
-      <h2>{delayFunction()}</h2>
+      <h2>{calculasion}</h2>
       <div>
         {currentList.map((item,index)=>{
           return <h2 key={index}>{item}</h2>
