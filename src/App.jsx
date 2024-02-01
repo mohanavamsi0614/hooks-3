@@ -23,7 +23,7 @@ function App() {
     return value+2;
   
   }
-  const calculasion=useMemo(()=>{delayFunction()},[value])
+  const calculasion=useMemo(()=>{return delayFunction()},[value])
 
   // should not change the LOGIC inside this function - you can make changes to the function but logic should NOT change
   const testFunction = ()=>{
